@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap{
+				position: relative;
+				width:500px;
+				height:300px;
+				left:100px;
+				top:300px;
+				overflow: hidden;
+			}
+		</style>
+		<script src="cxytool.js"></script>
+	</head>
+	
+	<body>
+		基于translate的拖拽
+		<div id="wrap">
+			<div id="abc" style="width:100px;height:100px;background: greenyellow;">dsgfd</div>
+		</div>
+		
+		<script type="text/javascript">
+			console.log(tools.drag(document.getElementById('abc')))
+		</script>
+	</body>
+</html>
