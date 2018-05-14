@@ -29,7 +29,7 @@ tools.querySearch = search => {
             if (each.indexOf('=') != -1) {
                 rstObj[item[0].trim()] = item[1].trim();
             } else {
-                console.error(`第${index + 1}项没有=,无法分割`);
+                console.error(`第${ index + 1 }项没有=,无法分割`);
             };
         });
         return rstObj;
@@ -106,7 +106,7 @@ tools.queryCookie = (str) => {
                 if (item.indexOf('=') > -1) {
                     obj[item.split('=')[0].trim()] = item.substr(item.indexOf('=') + 1);
                 } else {
-                    console.error(`第${index + 1}项不使用=分割`);
+                    console.error(`第${ index + 1 }项不使用=分割`);
                 };
             });
             return obj;
@@ -209,5 +209,13 @@ tools.scrollTo = (element, to, duration) => {
             return
         scrollTo(element, to, duration - 10)
     }, 10)
+}
+
+tools.isNumber = (value) => {
+    // 一下三种情况都会被isNaN转换为true
+    if (value === '' || value === null || value === false) {
+        return false;
+    }
+    return !isNaN(value);
 }
 export default tools;
