@@ -145,8 +145,14 @@ git push # 提交修改
 ```
 ![git stash的应用和原理][2]
  
+## 11.git branch dev
+```
+git branch dev #创建本地分支
+git checkout dev #切换到dev分支
+git push origin dev #将本地dev分支提交到远程服务器
+```
 
-## 11.git clone
+## 12.git clone
 `git clone [url]`
 从远程git仓库复制出一份到本地
 保存下载下来的所有版本记录，然后从中取出最新版本的文件拷贝
@@ -188,9 +194,8 @@ Port 443 #https端口
 ```
 [push]
     default = matching
-
 [core]
-excludesfile = /Users/chenxuanyu/.gitignore_global
+    excludesfile = /Users/chenxuanyu/.gitignore_global
 ```
 
 [1]: http://osjykr1v3.bkt.clouddn.com/FodhjyrPEOVrxkHM_Kjz5wBcgo0F

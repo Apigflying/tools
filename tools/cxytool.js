@@ -224,5 +224,5 @@ tools.drag = (ele) => {
 	};
 	return new Drag(ele)
 }
-
-export default tools;
+// module.exports = tools;
+// export default tools;
