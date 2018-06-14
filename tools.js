@@ -18,6 +18,9 @@ encodeURI不编码字符有82个：!，#，$，&，'，(，)，*，+，,，-，.
 encodeURIComponent不编码字符有71个：!， '，(，)，*，-，.，_，~，0-9，a-z，A-Z
 */
 var tools = {};
+
+
+
 //传入window.location.href或者window.location.search都可以
 tools.querySearch = search => {
     if (!!search && typeof search == 'string') {
@@ -44,12 +47,12 @@ tools.toQueryPair = (key, value) => {
     }
     return key + '=' + encodeURIComponent(value === null ? '' : String(value));
 }
-tools.toQueryString = function(obj){
+tools.toQueryString = function(obj) {
     var ret = [];
     for (var key in obj) {
         key = encodeURIComponent(key);
         var values = obj[key];
-        if (values && values.constructor == Array) {//数组
+        if (values && values.constructor == Array) { //数组
             var queryValues = [];
             for (var i = 0, len = values.length, value; i < len; i++) {
                 value = values[i];
@@ -241,5 +244,25 @@ tools.isNumber = (value) => {
         return false;
     }
     return !isNaN(value);
+}
+// 节流函数
+tools.debounce = function(fn, interval) {
+    var timer, isFirst = true;
+    return function() {
+        var args = arguments,
+            _me = this;
+        if(isFirst) {
+            fn.apply(_me, args);
+            return isFirst = false;
+        }
+        if(timer) {
+            return false
+        }
+        timer = setTimeout(function() {
+            clearTimeout(timer);
+            timer = null;
+            fn.apply(_me, args)
+        }, interval || 500)
+    }
 }
 export default tools;
