@@ -265,4 +265,22 @@ tools.debounce = function(fn, interval) {
         }, interval || 500)
     }
 }
+
+
+/**
+ *
+ *  
+ * @param {*} arr [min,max]
+ * @param {number} [float=0] 浮点数保留几位，默认是取整数
+ * @returns {number}
+ */
+tools.rp = function (arr, float = 0) {
+    var max = Math.max.apply(this, arr);
+    var min = Math.min.apply(this, arr);
+    var value = Math.random() * (max - min) + min
+    if (float && typeof float === 'number') {
+        return Number(value.toFixed(float));
+    }
+    return Math.round(value);
+}
 export default tools;
