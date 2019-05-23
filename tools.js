@@ -266,13 +266,32 @@ tools.debounce = function(fn, interval) {
     }
 }
 
+/**
+ *
+ * 检查目录是否存在,如果不存在,那么创建目录
+ *  
+ * @param {String} 嵌套的目录名
+ */
 
+tools.checkDirExist=(folderpath)=>{
+    const pathArr=folderpath.split('/');
+    let _path='';
+    for(let i=0;i<pathArr.length;i++){
+      if(pathArr[i]){
+        _path +=`/${pathArr[i]}`;
+        if (!fs.existsSync(_path)) {
+          fs.mkdirSync(_path);
+        }
+      }
+    }
+  }
+  
 /**
  *
  *  
- * @param {*} arr [min,max]
- * @param {number} [float=0] 浮点数保留几位，默认是取整数
- * @returns {number}
+ * @param {Array} arr [min,max]
+ * @param {Number} [float=0] 浮点数保留几位，默认是取整数
+ * @returns {Number}
  */
 tools.rp = function (arr, float = 0) {
     var max = Math.max.apply(this, arr);
