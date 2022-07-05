@@ -1,28 +1,52 @@
+<!--
+ * @Author: Json Chen
+ * @Date: 2019-05-23 10:05:33
+ * @LastEditTime: 2022-07-05 10:42:09
+ * @LastEditors: Json Chen
+ * @Description: 
+ * @FilePath: /tools/tools/index.html
+-->
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<style type="text/css">
-			#wrap{
-				position: relative;
-				width:500px;
-				height:300px;
-				left:100px;
-				top:300px;
-				overflow: hidden;
-			}
-		</style>
-		<script src="./cxytool.js"></script>
-	</head>
-	
-	<body>
-		基于translate的拖拽
-		<div id="wrap">
-			<div id="abc" style="width:100px;height:100px;background: greenyellow;">dsgfd</div>
-		</div>
-		
-		<script type="text/javascript">
-			console.log(tools.drag(document.getElementById('abc')))
-		</script>
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #wrap {
+            position: relative;
+            width: 500px;
+            height: 300px;
+            left: 100px;
+            top: 300px;
+            border: 1px solid red;
+            /* overflow: hidden; */
+        }
+
+        #child {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="./mvtools.js"></script>
+</head>
+
+<body>
+    基于translate的拖拽
+    <div id="wrap">
+        <div id="child" style="width:100px;height:100px;background: greenyellow;">dsgfd</div>
+    </div>
+
+    <script type="text/javascript">
+        var obj = document.getElementById('child');
+        // jj.css(obj)
+        jj.animation(obj, {
+            top: 100,
+            left: 100,
+            translateX: -100,
+            translateY: -100,
+        }, 3000);
+    </script>
+</body>
+
 </html>
